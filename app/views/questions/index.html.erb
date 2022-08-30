@@ -1,0 +1,12 @@
+<div class="container mt-sm">
+  <h2 class="title-lg">
+  <%= @questions.count%>
+  <%= inclinator(@questions.count, 'вопрос', 'вопроса', 'вопросов')%>
+  </h2>
+</div>
+
+<% @questions.each do |question| %>
+  <div class="mt-sm container ">
+    <%= render question %>
+  </div>
+<%end%>
