@@ -22,10 +22,7 @@
       <%= link_to fa_icon(edit_icon), edit_question_path(question), 
       title:"Изменить вопрос", class: "mr-sm"%>
       
-      <% unless @question.hidden?%>
-      <%= button_to fa_icon("eye-slash"), hide_question_path(question), method: :patch,
-      title:"Скрыть вопрос"%>
-    <%end%>
+    
     
     <%=button_to fa_icon("trash-o"), question_path(question), 
     method: :delete, title: "Удалить вопрос", form: {data: {turbo_confirm: 'Точно удалить вопрос?'}}%>
