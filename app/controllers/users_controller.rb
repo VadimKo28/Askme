@@ -24,7 +24,6 @@ before_action :authorise_user, only: %i[edit update destroy]
   end
 
   def edit 
-
   end 
 
   def update 
