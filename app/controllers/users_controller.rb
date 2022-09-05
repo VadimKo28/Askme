@@ -3,7 +3,6 @@ before_action :set_user, only: %i[show edit update destroy]
 before_action :authorise_user, only: %i[edit update destroy]
 
   def new
-    session[:current_time] = Time.now
     @user = User.new
   end
 
