@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   
-  before_validation :nickname_downcase!
+  before_validation :nickname_downcase
 
   NICKNAME_REGEXP = /\A[a-z0-9\_]+\z/
   EMAIL_REGEXP = /\A[a-z0-9]+@[a-z0-9]+\.[a-z]+\z/
