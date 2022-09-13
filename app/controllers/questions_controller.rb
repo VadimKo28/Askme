@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
 
     @question.author = current_user
-    
+
     @question.save
 
     redirect_to user_path(@question.user), notice: "Новый вопрос создан"
@@ -50,8 +50,13 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @user = User.find(params[:user_id])
+    #if params[:user_id].present?
+    # user = User.find(params[:user_id])
+    #  redirect_to(user_nickname: user)
+    #  return
+    #end
 
+    @user = User.find_by!(nickname: params[:user_nickname])
     @question = Question.new(user: @user)
   end
 
