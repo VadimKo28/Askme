@@ -13,7 +13,11 @@ class User < ApplicationRecord
   has_many :asked_questions, class_name: "Question", 
     foreign_key: :author_id, dependent: :nullify
 
-  private
+  def to_param 
+    nickname
+  end 
+  
+    private
 
   def attribute_downcase
     nickname&.downcase!

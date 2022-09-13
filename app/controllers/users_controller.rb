@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    if @user.save 
+    if @user.save
       session[:user_id] = @user.id
       redirect_to root_path, notice: "Вы успешно зарегистрировались!"
     else
@@ -18,40 +18,40 @@ class UsersController < ApplicationController
     end
   end
 
-  def show 
+  def show
     @questions = @user.questions.order(created_at: :desc)
     @question = Question.new(user: @user)
   end
 
-  def edit 
-  end 
+  def edit
+  end
 
-  def update 
+  def update
     if @user.update(user_params)
       redirect_to root_path, notice: "Данные пользователя обновлены"
     else
-      flash.now[:alert] = "При попытке сохранения произошли ошибки"  
+      flash.now[:alert] = "При попытке сохранения произошли ошибки"
       render :edit
     end
-  end 
+  end
 
-  def destroy 
+  def destroy
     @user.destroy
     redirect_to root_path, notice: "Пользователь удалён"
     session.delete(:user_id)
   end
 
-  private 
-  
+  private
+
   def authorise_user
     redirect_with_alert unless current_user == @user
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find_by!(nickname: params[:nickname])
   end
 
-  def user_params 
+  def user_params
     params.require(:user).permit(
       :name, :nickname, :email, :password, :password_confirmation
     )
