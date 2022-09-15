@@ -8,7 +8,8 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true, format: { with: EMAIL_REGEXP }
   validates :nickname, presence: true, length: { maximum: 40 }, uniqueness: true, format: { with: NICKNAME_REGEXP }
-
+  validates :header_color, format: { with: /\A#([a-f\d]{3}){1,2}\z/i }
+  
   has_many :questions, dependent: :delete_all
   has_many :asked_questions, class_name: "Question", 
     foreign_key: :author_id, dependent: :nullify
