@@ -2,7 +2,7 @@
 <% nickname_letters = user.nickname.first.upcase %>
 
 <div class="users-box-user <%= background_class %> rounded mr ml">
-  <a href="<% user_path(user) %>">
+  <a href="<%= user_path(user) %>">
     <h1 class="title-lg text-bold"><%= nickname_letters %></h1>
   </a>
 </div>
