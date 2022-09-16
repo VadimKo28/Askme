@@ -6,6 +6,7 @@
     padding: 8px 13px 7px;
     border-radius: 3px;
     font-size: 14px;
+    -webkit-appearance: none;
 }
 
 .button-main {
@@ -15,3 +16,4 @@
 .button-yellow {
   background-color: #ffba08;
 }
+

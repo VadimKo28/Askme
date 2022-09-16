@@ -19,6 +19,11 @@
 
       <p class="mt"><%= form.label :header_color, "Цвет шапки сайта" %></p>
       <p><%= form.color_field :header_color %></p>
+      <p>
+        <a href="#" onclick="document.getElementById('user_header_color').setAttribute('value', '#370617')">
+          Сбросить цвет шапки
+        </a>
+      </p>
 
       <p class="mt-lg text-sm">Если не хотите менять пароль - оставьте эти поля пустыми</p>
       <p class="mt"><%= form.label :passwor, "Пароль"%></p>
